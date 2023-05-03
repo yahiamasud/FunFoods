@@ -1,32 +1,48 @@
-import React, { useContext } from 'react';
-import { Form, Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
-  const {singIn}=useContext(AuthContext);
-    const handlelogin=(event)=>{
-        event.preventDafult();
+    const [error, setError] = useState('');
+
+    const { singIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handlelogin = (event) => {
+        event.preventDefault();
         const Form = event.target;
         const email = Form.email.value;
         const password = Form.password.value;
-        console.log(email , password);
+        console.log(email, password);
+
+        if (password !== confirm) {
+            setError("Your password did not match")
+            return
+        }
+        else if (password.length < 6) {
+            setError("password length not ok ")
+            return
+        }
+
 
         singIn(email, password)
-        .then(result =>{
-            const loggedUser = result.user;
-           
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
+            .then(result => {
+                const loggedUser = result.user;
+                navigate();
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
     }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div >
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <Form onSubmit = {handlelogin} className="card-body">
+                    <Form onSubmit={handlelogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -37,9 +53,12 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name='password' className="input input-bordered"required />
+                            <input type="password" placeholder="password" name='password' className="input input-bordered" required />
                             <label className="label">
-                           <p> No account<Link to="/Regestation"> Regestation page</Link></p>
+                                <p className='bg-red-100'> No account<Link to="/Regestation"> Regestation page</Link></p>
+                            </label>
+                            <label className="label">
+                                <p className='text-red-500'>{error}</p>
                             </label>
                         </div>
                         <div className="form-control mt-6">

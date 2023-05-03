@@ -9,11 +9,16 @@ import Login from './Compounent/Login/Login';
 import Layout from './Compounent/Layout/Layout';
 import Blog from './Compounent/Blog/Blog';
 import Regestation from './Compounent/Regestation/Regestation';
+import Items from './Compounent/items/items';
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import AuthProviders from './providers/AuthProviders';
+import Chefitem from './Compounent/ChefItem/Chefitem';
+import PrivateRoute from './Compounent/PrivateRoute/PrivateRoute';
+
 
 
 
@@ -32,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "About",
-        element: <About></About>
+        element:<PrivateRoute><About></About></PrivateRoute> 
       },
       {
         path: "Header",
@@ -40,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "Login",
-        element: <Login></Login>
+        element:<Login></Login>
       },
       {
         path: "Blog",
@@ -49,6 +54,15 @@ const router = createBrowserRouter([
       {
         path: "Regestation",
         element: <Regestation></Regestation>
+      },
+
+      {
+        path: "Chefitem",
+        element: <Chefitem></Chefitem>,
+      },
+      {
+        path: "Items",
+        element: <Items></Items>
       }
 
 

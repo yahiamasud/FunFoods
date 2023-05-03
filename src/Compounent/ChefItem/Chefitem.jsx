@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import Items from '../items/items';
 
 const Chefitem = () => {
+
+    const [lodearchef , setLouderchef] = useState([]);
+
+    useEffect(() => {
+        fetch('https://assingmen-yahiamasud.vercel.app/chefdata')
+            .then(res => res.json())
+            .then(data => setLouderchef(data))
+            .catch(error => console.error(error))
+            console.log(lodearchef);
+        
+
+    }, [])
     return (
-        <div>
-            <div className="card  glass">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="car!" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Life hack</h2>
-                    <p>How to park your car at your garage?</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Learn now!</button>
-                    </div>
-                </div>
+        <div className='container'>
+            <h2 className='text-center font-bold text-5xl'>Chaf all</h2>
+            <div className='container flex flex-4 mt-4'>
+                {
+                    lodearchef.map(chefdata =><Items key={chefdata.id} chefdata = {chefdata} ></Items>)
+                }
+                
             </div>
+
         </div>
     );
 };

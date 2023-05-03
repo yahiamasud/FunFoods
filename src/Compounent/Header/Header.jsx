@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Header = () => {
+    const {user,logOut }=useContext(AuthContext)
+    const handleLogout=()=>{
+        logOut()
+        .then()
+
+    }
     return (
         <div className="navbar mt-2 bg-base-200">
             <div className="flex-1">
@@ -12,12 +19,14 @@ const Header = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="About">About</Link></li>
                     <li><Link to="Blog">Blog</Link></li>
-                    <li><Link to="Regestation">Regstion</Link></li>
 
                 </ul>
                 <div className='flex ms-2'>
-                    <p>img</p>
-                    <p><Link to="Login">Login</Link></p>
+                   { user ? <button onClick={handleLogout}>Logout</button>:
+                    <Link to="/Login">
+                    <button>Login</button>
+                    </Link>
+                   }
                 </div>
             </div>
         </div>
