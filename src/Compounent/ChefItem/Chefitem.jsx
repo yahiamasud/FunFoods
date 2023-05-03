@@ -4,14 +4,16 @@ import Items from '../items/items';
 
 const Chefitem = () => {
 
-    const [lodearchef , setLouderchef] = useState([]);
+    const [loaddata , setLoaddata] = useState([]);
 
     useEffect(() => {
         fetch('https://assingmen-yahiamasud.vercel.app/chefdata')
             .then(res => res.json())
-            .then(data => setLouderchef(data))
+            .then(data => console.log(data))
             .catch(error => console.error(error))
-            console.log(lodearchef);
+            // console.log(loaddata);
+           
+
         
 
     }, [])
@@ -20,7 +22,7 @@ const Chefitem = () => {
             <h2 className='text-center font-bold text-5xl'>Chaf all</h2>
             <div className='container flex flex-4 mt-4'>
                 {
-                    lodearchef.map(chefdata =><Items key={chefdata.id} chefdata = {chefdata} ></Items>)
+                    loaddata.map(chefdata =><Items key={chefdata.id} chefdata = {chefdata} ></Items>)
                 }
                 
             </div>
