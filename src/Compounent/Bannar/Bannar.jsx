@@ -10,7 +10,7 @@ const Bannar = () => {
           <div className='w-50  flex flex-col justify-center  text-center '>
             <h1 className="text-6xl font-bold">Fun Food offer!</h1>
             <p className="py-6">We have delicious food here grab it soon or it will be gone for a very limited time don't pay much</p>
-            <button className="w-20 mx-auto  btn btn-primary">Get Started</button>
+            <button className=" mx-auto  btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
