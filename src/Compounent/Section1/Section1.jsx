@@ -7,8 +7,8 @@ const Section1 = () => {
     return (
         <div className='container mx-auto mt-20' >
             <h2 className='text-5xl text-center font-bold'>Catering for various events</h2>
-            <div className='flex gap-5 my-20 '>
-                <div className="card  bg-base-100 shadow-xl">
+            <div className='flex  gap-5 my-20 mx-5 '>
+                <div className="card flex-col-12 bg-base-100 shadow-xl">
                     <div className="avatar w-100 flex justify-center">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={imgs1} />
@@ -31,7 +31,7 @@ const Section1 = () => {
 
                     </div>
                 </div>
-                <div className="card   bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <div className="avatar w-100 flex justify-center">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={imgs3} />

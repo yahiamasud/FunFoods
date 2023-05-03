@@ -1,11 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, updateCurrentUser, GoogleAuthProvider, signInWithPopup  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, updateCurrentUser, GoogleAuthProvider, signInWithPopup, GithubAuthProvider  } from "firebase/auth";
 
 export const AuthContext =createContext(null);
 
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
+const gitAuthProvider = new GithubAuthProvider();
+
 
 const AuthProviders = ({children}) => {
 
@@ -16,9 +18,16 @@ const AuthProviders = ({children}) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
+
     const singInGoogle =()=>{
+        setLoading(true);
         return signInWithPopup (auth, googleAuthProvider);
-    }
+    };
+
+    const gitLoginIn =()=> {
+        setLoading(true);
+        return signInWithPopup(auth,  gitAuthProvider)
+    };
 
     const singIn = (email , password) => {
         setLoading(true);
@@ -27,11 +36,12 @@ const AuthProviders = ({children}) => {
     
     const logOut =()=>{
         return signOut(auth);
-    }
+    };
 
-    const profileUpdateNamePhoto =(name, photoURL)=>{
-        updateProfile(auth, updateCurrentUser,{ display: name , photoURL})
-        
+    const updataprofile =(name, photo)=>{
+        return updateProfile(auth, currentUser,{
+            display: name , photoURL: photo
+        })
     }
 
     // ===============================================================
@@ -53,7 +63,8 @@ const AuthProviders = ({children}) => {
         createUser,
         singIn,
         singInGoogle,
-        profileUpdateNamePhoto,
+        gitLoginIn,
+        updataprofile,
         logOut
         
     };

@@ -2,7 +2,7 @@ import React from 'react';
 import Bannar from '../Bannar/Bannar';
 import Section1 from '../Section1/Section1';
 import Carousel from '../Carousel/Carousel'
-import Chefitem from '../ChefItem/Chefitem';
+import Chefitem from '../ChefItem/ChefItem';
 
 
 const Home = () => {

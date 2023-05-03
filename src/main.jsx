@@ -16,8 +16,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AuthProviders from './providers/AuthProviders';
-import Chefitem from './Compounent/ChefItem/Chefitem';
+import ChefItem from './Compounent/ChefItem/ChefItem';
 import PrivateRoute from './Compounent/PrivateRoute/PrivateRoute';
+import Datials from './Compounent/datials/Datials';
 
 
 
@@ -57,15 +58,18 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "Chefitem",
-        element: <Chefitem></Chefitem>
+        path: "ChefItem",
+        element: <ChefItem></ChefItem>
        
       },
       {
         path: "Items",
         element: <Items></Items>
+      },
+      {
+        path:"Datials",
+        element:<PrivateRoute><Datials></Datials></PrivateRoute>
       }
-
       
     ]
   },
@@ -78,3 +82,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </AuthProviders>
   </React.StrictMode>,
 )
+

@@ -5,7 +5,7 @@ import "./login.css"
 
 const Login = () => {
 
-    const { singIn, singInGoogle } = useContext(AuthContext);
+    const { singIn, singInGoogle, gitLoginIn } = useContext(AuthContext);
     const [error, setError] = useState('');
 
 
@@ -30,6 +30,7 @@ const Login = () => {
         singIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                console.log(loggedUser);
                 Form.reset();
                 navigate(from, { replace: true });
 
@@ -49,6 +50,16 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
             })
+    }
+    const handleGiteLoginIn =()=>{
+        gitLoginIn()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
     return (
         <div className="container   bg-base-200">
@@ -76,10 +87,13 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control ">
-                            <button className="btn btn-primary mx-12">Login</button>
+                            <button className="btn btn-primary mx-12" type="submit">Login</button>
                         </div>
                         <div className="form-control ">
-                            <button onclick={handleGoogleSingIn} className="btn btn-primary mx-12 mb-4">googleSingIn</button>
+                            <button onClick={handleGoogleSingIn} className="btn btn-primary mx-12 " type="button" >googleSingIn</button>
+                        </div>
+                        <div className="form-control ">
+                            <button onClick={handleGiteLoginIn} className="btn btn-primary mx-12 mb-4" type="button">GitLogin</button>
                         </div>
                     </Form>
 

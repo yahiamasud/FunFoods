@@ -1,33 +1,30 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Items from '../items/items'
 
-const Chefitem = () => {
-    const [loaddata , setLoaddata] = useState([]);
+const ChefItem = () => {
+    const [loaddata, setLoaddata] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('https://assingmen-yahiamasud.vercel.app/chefdata')
-    //         .then(res => res.json())
-    //         .then(data => setLoaddata(data))
-    //         .catch(error => console.error(error))
-    //         console.log(loaddata);
-    // }, [])
+    useEffect(() => {
+        fetch('https://assingmen-yahiamasud.vercel.app/chefdata')
+            .then(res => res.json())
+            .then(data => setLoaddata(data))
+            .catch(error => console.error(error))
 
-    // console.log(loaddata);
+    }, [])
+
+    console.log(loaddata);
+
     return (
         <div className='container'>
-            <h2 className='text-center font-bold text-5xl'>Chaf all</h2>
-            <div className='container flex flex-4 mt-4'>
-            
-                {
-                    loaddata.map( datas => <Items key={datas.id} chefdata={chefdata}></Items>)
-                }
-                
-                
-            </div>
-
+            <h2 className='text-center font-bold text-5xl mt-6'>Chaf all</h2>
+                <div className='grid grid-cols-3 gap-4'>
+                    {
+                        loaddata.map(chefdata => <Items key={chefdata.id} chefdata={chefdata}></Items>)
+                    }
+                </div>
         </div>
     );
 };
 
-export default Chefitem;
+export default ChefItem;

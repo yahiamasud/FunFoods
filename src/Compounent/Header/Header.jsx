@@ -23,7 +23,7 @@ const Header = () => {
                 </ul>
                 <div className='flex ml-5 px-5'>
                     {
-                        user &&  <span>{user.email}</span>
+                        user &&  <span>{user.name}</span>
                     }
                    { user ? <button onClick={handleLogout} className='font-bold'>Logout</button>:
                     <Link to="/Login">

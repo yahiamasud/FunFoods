@@ -15,7 +15,7 @@ const Regestation = () => {
         const email = Form.email.value;
         const name = Form.name.value;
         const password = Form.password.value;
-        const photoURL = Form.name.value;
+        const photo = Form.photo.value;
         // console.log(email, password, name)
 
 
@@ -36,16 +36,16 @@ const Regestation = () => {
                 // ..
             });
 
-        profileUpdateNamePhoto(name, photoURL)
-           .then()
-           .catch()
+        updataprofile(name, photo)
+            .then()
+            .catch()
 
     }
 
     return (
         <div className="container pb-5 bg-base-200">
             <div className='Box mx-auto' >
-            <h1 className='text-5xl font-bold text-center '>REGESTETION</h1>
+                <h1 className='text-5xl font-bold text-center '>REGESTETION</h1>
                 <div className=" card flex-shrink-0 shadow-2xl bg-base-100">
                     <Form onSubmit={handleSingUp} className="card-body">
                         <div className="form-control">
