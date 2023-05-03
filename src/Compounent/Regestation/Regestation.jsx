@@ -15,8 +15,6 @@ const Regestation = () => {
         const password = Form.password.value;
         const name = Form.name.value;
         const photo = Form.name.value;
-        
-        // const photo = Form.photo.value;
         console.log(email, password, name)
 
     
@@ -28,6 +26,7 @@ const Regestation = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
+                Form.reset();
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -64,6 +63,12 @@ const Regestation = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="password" name='password' className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Confirm Password</span>
+                            </label>
+                            <input type="password" placeholder="password" name='confirm' className="input input-bordered" required />
                             <label className="label">
                                 <label className="label">
                                     <p>alraey acount:- <Link to="/Login"> login page</Link></p>

@@ -22,6 +22,9 @@ const Header = () => {
 
                 </ul>
                 <div className='flex ms-2'>
+                    {
+                        user &&  <span>{user.email}</span>
+                    }
                    { user ? <button onClick={handleLogout}>Logout</button>:
                     <Link to="/Login">
                     <button>Login</button>
