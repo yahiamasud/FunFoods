@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '/public/pineapple-supply-co-qWlkCwBnwOE-unsplash (1).jpg';
+import img from '/public/the-storyteller-agency-co-97QhpsWNnCE-unsplash.jpg';
 import './bannnar.css'
 
 const Bannar = () => {

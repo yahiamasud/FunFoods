@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import "./login.css"
 
 const Login = () => {
 
+    const { singIn, singInGoogle } = useContext(AuthContext);
     const [error, setError] = useState('');
-    const { singIn } = useContext(AuthContext);
+
+
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/"
@@ -17,7 +21,7 @@ const Login = () => {
         const password = Form.password.value;
         console.log(email, password);
 
-         if (password.length < 6) {
+        if (password.length < 6) {
             setError("password length not ok ")
             return
         }
@@ -27,7 +31,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 Form.reset();
-                navigate(from ,{replace:true});
+                navigate(from, { replace: true });
 
             })
             .catch((error) => {
@@ -36,10 +40,22 @@ const Login = () => {
                 // ..
             });
     }
+    const handleGoogleSingIn = () => {
+        singInGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div >
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="container   bg-base-200">
+            
+            <div className='Box p-10 mx-auto' >
+                <h1 className='text-5xl font-bold text-center m-2'>LOGING</h1>
+                <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
                     <Form onSubmit={handlelogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -53,16 +69,22 @@ const Login = () => {
                             </label>
                             <input type="password" placeholder="password" name='password' className="input input-bordered" required />
                             <label className="label">
-                                <p className='bg-red-100'> No account<Link to="/Regestation"> Regestation page</Link></p>
+                                <p className=''> No account <Link to="/Regestation" className='bg-red-400 rounded p-1'> Regestation page</Link></p>
                             </label>
                             <label className="label">
                                 <p className='text-red-500'>{error}</p>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                        <div className="form-control ">
+                            <button className="btn btn-primary mx-12">Login</button>
+                        </div>
+                        <div className="form-control ">
+                            <button onclick={handleGoogleSingIn} className="btn btn-primary mx-12 mb-4">googleSingIn</button>
                         </div>
                     </Form>
+
+
+
                 </div>
             </div>
         </div>

@@ -12,22 +12,22 @@ const Header = () => {
     return (
         <div className="navbar mt-2 bg-base-200">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Fun Food</a>
+                <a className="btn btn-ghost normal-case text-2xl font-bold">Fun Food</a>
             </div>
             <div className="flex-none justify-around">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="About">About</Link></li>
-                    <li><Link to="Blog">Blog</Link></li>
+                    <li><Link to="/" className='font-bold'>Home</Link></li>
+                    <li><Link to="About" className='font-bold'>About</Link></li>
+                    <li><Link to="Blog" className='font-bold'>Blog</Link></li>
 
                 </ul>
-                <div className='flex ms-2'>
+                <div className='flex ml-5 px-5'>
                     {
                         user &&  <span>{user.email}</span>
                     }
-                   { user ? <button onClick={handleLogout}>Logout</button>:
+                   { user ? <button onClick={handleLogout} className='font-bold'>Logout</button>:
                     <Link to="/Login">
-                    <button>Login</button>
+                    <button className='font-bold'>Login</button>
                     </Link>
                    }
                 </div>

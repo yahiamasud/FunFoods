@@ -1,27 +1,29 @@
 import React, { useContext, useState } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import './Reg.css'
 
 
 const Regestation = () => {
 
-    const [error , setError]=useState('');
-    const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const { createUser, profileUpdateNamePhoto } = useContext(AuthContext);
 
     const handleSingUp = (event) => {
         event.preventDefault();
         const Form = event.target;
         const email = Form.email.value;
-        const password = Form.password.value;
         const name = Form.name.value;
-        const photo = Form.name.value;
-        console.log(email, password, name)
+        const password = Form.password.value;
+        const photoURL = Form.name.value;
+        // console.log(email, password, name)
 
-    
-        if(password.length < 6){
+
+        if (password.length < 6) {
             setError("password length not ok ")
             return
         }
+
 
         createUser(email, password)
             .then(result => {
@@ -33,12 +35,18 @@ const Regestation = () => {
                 const errorMessage = error.message;
                 // ..
             });
+
+        profileUpdateNamePhoto(name, photoURL)
+           .then()
+           .catch()
+
     }
 
     return (
-        <div className=" container   flex justify-center min-h-screen bg-base-200">
-            <div >
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="container pb-5 bg-base-200">
+            <div className='Box mx-auto' >
+            <h1 className='text-5xl font-bold text-center '>REGESTETION</h1>
+                <div className=" card flex-shrink-0 shadow-2xl bg-base-100">
                     <Form onSubmit={handleSingUp} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -71,7 +79,7 @@ const Regestation = () => {
                             <input type="password" placeholder="password" name='confirm' className="input input-bordered" required />
                             <label className="label">
                                 <label className="label">
-                                    <p>alraey acount:- <Link to="/Login"> login page</Link></p>
+                                    <p>alraey acount:- <Link to="/Login" className='bg-red-400 rounded p-1'> login page</Link></p>
                                 </label>
                             </label>
                             <label className="label">
