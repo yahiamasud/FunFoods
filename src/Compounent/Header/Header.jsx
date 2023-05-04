@@ -17,7 +17,6 @@ const Header = () => {
             <div className="flex-none justify-around">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/" className='font-bold'>Home</Link></li>
-                    <li><Link to="About" className='font-bold'>About</Link></li>
                     <li><Link to="Blog" className='font-bold'>Blog</Link></li>
 
                 </ul>

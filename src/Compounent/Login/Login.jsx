@@ -21,8 +21,13 @@ const Login = () => {
         const password = Form.password.value;
         console.log(email, password);
 
+        const regularExpression  = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         if (password.length < 6) {
             setError("password length not ok ")
+            return
+        }
+        else if(!regularExpression.test(password)){
+           setError("password should contain atleast one number and one special character")
             return
         }
 
@@ -37,7 +42,7 @@ const Login = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
+                setError(errorCode)
                 // ..
             });
     }
@@ -46,6 +51,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)
@@ -56,6 +62,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(from, { replace: true });
         })
         .catch(error => {
             console.log(error)

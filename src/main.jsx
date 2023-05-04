@@ -3,22 +3,22 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import Home from './Compounent/Home/Home';
 import Footer from './Compounent/Footer/Footer';
-import About from './Compounent/About/About';
 import Header from './Compounent/Header/Header';
 import Login from './Compounent/Login/Login';
 import Layout from './Compounent/Layout/Layout';
 import Blog from './Compounent/Blog/Blog';
 import Regestation from './Compounent/Regestation/Regestation';
 import Items from './Compounent/items/items';
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import AuthProviders from './providers/AuthProviders';
 import ChefItem from './Compounent/ChefItem/ChefItem';
 import PrivateRoute from './Compounent/PrivateRoute/PrivateRoute';
 import Datials from './Compounent/datials/Datials';
+import Error from './Compounent/Error/Error';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 
 
 
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "/",
@@ -35,10 +36,6 @@ const router = createBrowserRouter([
       {
         path: "Footer",
         element: <Footer></Footer>
-      },
-      {
-        path: "About",
-        element:<PrivateRoute> <About> </About> </PrivateRoute> 
       },
       {
         path: "Header",
@@ -69,7 +66,7 @@ const router = createBrowserRouter([
       {
         path:"Datials",
         element:<PrivateRoute><Datials></Datials></PrivateRoute>
-      }
+      },
       
     ]
   },

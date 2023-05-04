@@ -18,9 +18,13 @@ const Regestation = () => {
         const photo = Form.photo.value;
         // console.log(email, password, name)
 
-
+        const regularExpression  = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         if (password.length < 6) {
             setError("password length not ok ")
+            return
+        }
+        else if(!regularExpression.test(password)){
+           setError("password should contain atleast one number and one special character")
             return
         }
 
