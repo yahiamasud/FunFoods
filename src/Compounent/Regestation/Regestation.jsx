@@ -7,7 +7,7 @@ import './Reg.css'
 const Regestation = () => {
 
     const [error, setError] = useState('');
-    const { createUser, profileUpdateNamePhoto } = useContext(AuthContext);
+    const { createUser, profile } = useContext(AuthContext);
 
     const handleSingUp = (event) => {
         event.preventDefault();
@@ -32,6 +32,15 @@ const Regestation = () => {
             .then(result => {
                 const createdUser = result.user;
                 Form.reset();
+
+                profile( createdUser, name, photo)
+                .then(() => {
+                    
+                })
+                .catch((error) => {
+                   
+                });
+                
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -39,13 +48,7 @@ const Regestation = () => {
                 // ..
             });
 
-        profile(name, photo)
-            .then(() => {
-                
-            })
-            .catch((error) => {
-               
-            });
+      
 
     }
 
