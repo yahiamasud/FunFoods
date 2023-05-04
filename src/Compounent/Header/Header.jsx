@@ -9,6 +9,7 @@ const Header = () => {
         .then()
 
     }
+   
     return (
         <div className="navbar mt-2 bg-base-200">
             <div className="flex-1">

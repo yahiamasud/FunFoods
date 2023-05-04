@@ -33,7 +33,7 @@ const Regestation = () => {
                 const createdUser = result.user;
                 Form.reset();
 
-                profile( createdUser, name, photo)
+                profile( name, photo)
                 .then(() => {
                     
                 })
