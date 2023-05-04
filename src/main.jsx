@@ -65,8 +65,8 @@ const router = createBrowserRouter([
       },
       {
         path:"Datials",
-        element:<PrivateRoute><Datials></Datials></PrivateRoute>
-      },
+        element:<PrivateRoute> <Datials></Datials> </PrivateRoute>
+      }
       
     ]
   },
