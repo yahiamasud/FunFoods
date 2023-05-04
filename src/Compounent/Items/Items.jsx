@@ -15,7 +15,7 @@ const Items = ({chefdata}) => {
                     <p>{start_date}</p>
                     <p> Corrupti perferendis modi quo eligendi illum exercitationem molestiae magnam voluptatum dolore dignissimos? Blanditiis voluptate esse facere, provident in unde officiis eligendi modi.</p>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary"><Link to="/Datials">View Details</Link></button>
+                    <button className="btn btn-primary" type="button" ><Link to="/Datials">View Details</Link></button>
                     </div>
                 </div>
             </div>

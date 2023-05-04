@@ -13,8 +13,6 @@ const ChefItem = () => {
 
     }, [])
 
-    console.log(loaddata);
-
     return (
         <div className='container'>
             <h2 className='text-center font-bold text-5xl mt-6'>Chaf all</h2>
