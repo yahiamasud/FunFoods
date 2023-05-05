@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <div className="navbar mt-2 bg-base-200">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-2xl font-bold">Fun Food</a>
+                <a className="btn btn-ghost normal-case text-2xl font-bold">Fun<span className='text-blue-700'>F</span>ood</a>
             </div>
             <div className="flex-none justify-around">
                 <ul className="menu menu-horizontal px-1">
