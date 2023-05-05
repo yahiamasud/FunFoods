@@ -2,8 +2,8 @@ import React from 'react';
 import './Items.css'
 import { Link } from 'react-router-dom';
 
-const Items = ({chefdata}) => {
-    const {name, position ,photo,start_date} = chefdata ;
+const Items = ({ chefdata }) => {
+    const { name, position, photo, start_date } = chefdata;
     return (
         <div className='itemscard  w-50 my-10'>
             <div className="card  glass">
@@ -15,7 +15,7 @@ const Items = ({chefdata}) => {
                     <p>{start_date}</p>
                     <p> Corrupti perferendis modi quo eligendi illum exercitationem molestiae magnam voluptatum dolore dignissimos? Blanditiis voluptate esse facere, provident in unde officiis eligendi modi.</p>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary" type="button" ><Link to="/Datials">View Details</Link></button>
+                        <button className="btn btn-primary" type="button" ><Link to="/Datials">View Details</Link></button>
                     </div>
                 </div>
             </div>
