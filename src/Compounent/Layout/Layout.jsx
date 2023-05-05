@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import CopiRigt from '../CopiRignt/CopiRigt';
 
 const Layout = () => {
     return (
@@ -9,6 +10,7 @@ const Layout = () => {
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
+            <CopiRigt></CopiRigt>
         </div>
     );
 };

@@ -18,6 +18,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import CopiRigt from './Compounent/CopiRignt/CopiRigt';
 
 
 
@@ -65,7 +66,11 @@ const router = createBrowserRouter([
       },
       {
         path:"Datials",
-        element:<PrivateRoute> <Datials></Datials> </PrivateRoute>
+        element:<PrivateRoute><Datials></Datials></PrivateRoute>
+      },
+      {
+        path:"CopiRigt",
+        element:<CopiRigt></CopiRigt>
       }
       
     ]
