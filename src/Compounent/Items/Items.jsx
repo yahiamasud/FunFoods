@@ -16,7 +16,7 @@ const Items = ({ chefdata }) => {
                     <p  className='text-xl'>{start_date}</p>
                     <p className='text-2xl'> Corrupti perferendis modi quo eligendi illum exercitationem............</p>
                     <div className="flex w-full sm:flex-row justify-between mt-2">
-                        <div><button className="btn btn-primary" type="button" ><Link to={`/chefdata/${id}`} >View Details</Link></button></div>
+                        <div><button className="btn btn-primary" type="button" ><Link to={`details/${id}`} >View Details</Link></button></div>
                         <div className='flex '><p className='mt-1 mx-2'><BsHandThumbsUpFill/></p> <p>500</p></div>
                     </div>
                 </div>
