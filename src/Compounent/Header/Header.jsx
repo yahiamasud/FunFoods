@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import { BsPersonCircle } from "react-icons/bs";
 import './head.css'
 
 const Header = () => {
@@ -23,13 +24,16 @@ const Header = () => {
                     <li><Link to="Blog" className='font-bold'>Blog</Link></li>
 
                 </ul>
-                <div className='flex ml-5 px-5'>
+                <div className='flex px-5'>
                     {
-                        user && <span className='mx-3'><img className="imgProfile  " src={user.photoURL} alt=""/></span>
+                        user && <span className='mx-3'><img className="imgProfile  " src={user.photoURL} alt="" /></span>
                     }
-                    {user ? <button onClick={handleLogout} className='font-bold'>Logout</button> :
+                    {user ?
+                        <button onClick={handleLogout} className=' font-bold'>  Logout</button>
+                        :
+
                         <Link to="/Login">
-                            <button className='font-bold'>Login</button>
+                            <div className='text-center flex '> <button className='btn btn-primary'>login</button></div>
                         </Link>
                     }
                 </div>
