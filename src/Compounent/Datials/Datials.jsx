@@ -3,26 +3,29 @@ import { Link, useParams } from 'react-router-dom';
 import './daa.css';
 
 const Datials = () => {
-    const [items , setItems]= useState([])
-    const {id} = useParams();
-    useEffect(()=>{
+    const [items, setItems] = useState([])
+    const { id } = useParams();
+    // const{ name }= items.items;
+    useEffect(() => {
         fetch(`https://assingmen-yahiamasud.vercel.app/chefdata/${id}`)
-        .then((res)=>res.json())
-        .then((data)=>{
-            // console.log(data);
-            setItems(data);
-        });
-    },[id]);
-    // console.log(items);
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                setItems(data)
+            });
+    }, [id]);
+    console.log();
     return (
         <div className='container'>
             <div className=" bg-base-100 shadow-xl">
-               <img className='detialphoto' src={items.items.photo}  alt="" />
+            
+                <img className='detialphoto' src="" alt="" />
                 <div className="card-body">
-                    <h2 className="card-title">name:-{items.items.name}</h2>
-                    <h2 className='card-title'>Position:-{items.items.position}</h2>
+                    <h2 className="card-title">name:-</h2>
+                    <h2 className='card-title'>Position:-</h2>
                     <h2 className='card-title'>Company:-</h2>
-                    <p>{items.items.dates}</p>
+                    <h2 className='card-title'>Datials:-</h2>
+                    <p></p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary"><Link to="/Home">back</Link></button>
                     </div>
