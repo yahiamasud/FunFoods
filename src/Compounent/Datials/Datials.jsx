@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Datials = () => {
+    const [items , setItems]=useState([])
+    const {id}=useParams();
+    useEffect(()=>{
+        fetch(`https://assingmen-yahiamasud.vercel.app/chefdata/${id}`)
+        .then((res)=>res.json())
+        .then((data)=>setItems(data) )
+    },[]);
+    console.log(items)
     return (
         <div className='container'>
             <div >
